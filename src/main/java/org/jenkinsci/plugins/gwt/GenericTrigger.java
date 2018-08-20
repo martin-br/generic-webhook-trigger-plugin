@@ -34,6 +34,7 @@ public class GenericTrigger extends Trigger<Job<?, ?>> {
   private boolean printContributedVariables;
   private String causeString;
   private String token;
+  private String redirectUrl;
 
   @Symbol("GenericTrigger")
   public static class GenericDescriptor extends TriggerDescriptor {
@@ -97,6 +98,15 @@ public class GenericTrigger extends Trigger<Job<?, ?>> {
 
   public String getToken() {
     return token;
+  }
+  
+  @DataBoundSetter
+  public void setRedirectUrl(final String redirectUrl) {
+    this.redirectUrl = redirectUrl;
+  }
+
+  public String getRedirectUrl() {
+    return redirectUrl;
   }
 
   @Extension public static final GenericDescriptor DESCRIPTOR = new GenericDescriptor();
